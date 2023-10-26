@@ -5,7 +5,6 @@ import pandas as pd
 # Load the models
 models = {
     "DecisionTree": load('DecisionTree.joblib'),
-    "gaussianRegression": load('gaussianRegression.joblib'),
     "LinearRegression": load('LinearRegression.joblib'),
     "RandomForest": load('RandomForest.joblib'),
     "ARIMA": load('arima.joblib')
