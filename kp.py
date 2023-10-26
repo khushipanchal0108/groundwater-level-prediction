@@ -6,7 +6,7 @@ models = {
     "DecisionTree": load('DecisionTree.joblib'),
     "LinearRegression": load('LinearRegression.joblib'),
     "RandomForest": load('RandomForest.joblib'),
-    "ARIMA": load('arima_model.joblib') 
+    "ARIMA": load('arima_model.joblib')
 }
 
 st.title("Groundwater Level Prediction")
@@ -29,12 +29,13 @@ if start_date > end_date:
 elif st.button("Predict using ARIMA"):
     try:
         last_train_date = pd.to_datetime("2021-04-18") 
-        forecast_steps = (end_date - last_train_date).days
+        forecast_steps = (pd.Timestamp(end_date) - last_train_date).days
         
         forecast_values, stderr, conf_int = models["ARIMA"].forecast(steps=forecast_steps)
 
-        desired_forecast = forecast_values[(start_date - last_train_date).days:]
+        desired_forecast = forecast_values[(pd.Timestamp(start_date) - last_train_date).days:]
         
+        # Plotting the forecasted values
         st.line_chart(desired_forecast, use_container_width=True)
     except Exception as e:
         st.error(f"Error in prediction: {e}")
