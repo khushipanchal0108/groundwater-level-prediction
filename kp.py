@@ -2,7 +2,6 @@ import streamlit as st
 from joblib import load
 import pandas as pd
 
-# Load the models
 models = {
     "DecisionTree": load('DecisionTree.joblib'),
     "LinearRegression": load('LinearRegression.joblib'),
@@ -22,14 +21,14 @@ for model_name, model in models.items():
         st.write(f"{model_name} Prediction: {prediction:.2f}")
 
 st.write("Select a date range for ARIMA prediction:")
-start_date = st.date_input("Start Date", pd.to_datetime("2021-04-19"))
-end_date = st.date_input("End Date", pd.to_datetime("2021-07-24"))
+start_date = st.date_input("Start Date", pd.to_datetime("2021-07-24"))
+end_date = st.date_input("End Date", pd.to_datetime("2021-08-23"))
 
 if start_date > end_date:
     st.warning('End date must fall after start date.')
 elif st.button("Predict using ARIMA"):
     try:
-        last_train_date = pd.to_datetime("your_last_training_date_here")
+        last_train_date = pd.to_datetime("2021-04-18") 
         forecast_steps = (end_date - last_train_date).days
         
         forecast_values, stderr, conf_int = models["ARIMA"].forecast(steps=forecast_steps)
