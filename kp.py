@@ -12,8 +12,8 @@ models = {
 
 st.title("Groundwater Level Prediction")
 
-precipitation = st.slider("Precipitation", min_value=0.0, max_value=0.03133407, value=0.0, step=0.0001)
-evapotranspiration = st.slider("Evapotranspiration", min_value=-0.041337304, max_value=-0.005239387, value=0.0, step=0.0001)
+precipitation = st.slider("Precipitation", min_value=0.0, max_value=0.07312591, value=0.0, step=0.0001)
+evapotranspiration = st.slider("Evapotranspiration", min_value=0.0, max_value=0.101653, value=0.0, step=0.0001)
 input_data = [[precipitation, evapotranspiration]]
 
 for model_name, model in models.items():
