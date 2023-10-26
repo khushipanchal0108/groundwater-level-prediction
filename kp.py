@@ -6,7 +6,7 @@ models = {
     "DecisionTree": load('DecisionTree.joblib'),
     "LinearRegression": load('LinearRegression.joblib'),
     "RandomForest": load('RandomForest.joblib'),
-    "ARIMA": load('arima.joblib')
+    "ARIMA": load('arima_model.joblib')
 }
 
 st.title("Groundwater Level Prediction")
