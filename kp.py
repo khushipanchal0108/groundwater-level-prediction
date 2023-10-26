@@ -22,8 +22,8 @@ for model_name, model in models.items():
         st.write(f"{model_name} Prediction: {prediction:.2f}")
 
 st.write("Select a date range for ARIMA prediction:")
-start_date = st.date_input("Start Date", pd.to_datetime("2021-07-24"))
-end_date = st.date_input("End Date", pd.to_datetime("2021-08-23"))
+start_date = st.date_input("Start Date", pd.to_datetime("2021-04-19"))
+end_date = st.date_input("End Date", pd.to_datetime("2021-07-24"))
 
 if start_date > end_date:
     st.warning('End date must fall after start date.')
